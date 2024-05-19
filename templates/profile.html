@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="user-info">
+        <h1>Username</h1>
+        <h3>creation date</h3>
+        <div class="friends-list">
+            <h2>Friends list</h2>
+            <ul>
+                <li>OLEG</li>
+                <li>ALEXEY</li>
+                <li>EGOR</li>
+            </ul>
+        </div>
+        <div class="projects-list">
+            <h2>Projects list</h2>
+            <ul>
+                <li href="{{ url_for('project/<id>') }}">project 1</li>
+                <li href="{{ url_for('project/<id>') }}">project 2</li>
+                <li href="{{ url_for('project/<id>') }}">project 3</li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
