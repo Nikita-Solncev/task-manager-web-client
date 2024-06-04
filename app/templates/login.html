@@ -14,5 +14,16 @@
         {{ render_field(form.password) }}
       </dl>
       <p><input type=submit value=Login></p>
+
+      <script>
+        const button = document.querySelector("input");
+        button.addEventListener("click", sendApiRequest);
+
+        function sendApiRequest() {         
+        // document.location.href = 'http://localhost:5012/loginhelp"';
+        console.log("hello")
+        }
+      </script>
+    </form>
 </body>
 </html>
