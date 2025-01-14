@@ -1,0 +1,4 @@
+.NavLink {
+    display: flex;
+    flex-direction: row;
+}
