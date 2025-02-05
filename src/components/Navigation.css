@@ -1,4 +1,51 @@
-.NavLink {
+.navbar {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d1b2a;
+    padding: 10px 20px;
+}
+
+/* Стили для левой части панели */
+.navbar-left {
+    display: flex;
+}
+
+/* Стили для правой части панели */
+.navbar-right {
+    display: flex;
+    gap: 10px;
+}
+
+/* Общие стили для кнопок */
+.nav-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Стили для пустых кнопок */
+.navbar-left .nav-button {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Стили для кнопок Sign In и Log In */
+.nav-button.sign-in,
+.nav-button.log-in {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
+}
+
+/* Эффект при наведении на кнопки */
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-button.sign-in:hover,
+.nav-button.log-in:hover {
+    background-color: #45a049; /* Темно-зеленый цвет при наведении */
 }

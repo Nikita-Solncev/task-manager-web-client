@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../services/registerService.js';
 
 export function Register() {
     
@@ -7,33 +8,16 @@ export function Register() {
     function sendRegisterForm(event) {
         event.preventDefault();
 
-        const URL = "http://127.0.0.1:5000/register";
-
-        const options = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: event.target[0].value, 
-                password: event.target[1].value
-            })
-        }
-
-        console.log(event.target[0].value);
-        console.log(event.target[1].value);
-        console.log(options)
-
-        fetch(URL, options)
+        const username =  event.target[0].value;
+        const password =  event.target[1].value;
+        
+        registerUser(username, password)
             .then((response) => response.json())
             .then((data) => {
                 localStorage.setItem("token", data.token);
-                debugger
-                console.log(data);
                 navigate("/");
             }) 
 
-        console.log("form submited")
     }
     return (
         <>

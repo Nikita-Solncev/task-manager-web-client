@@ -1,9 +1,12 @@
 import '../App.css'
 import { useState, useEffect } from 'react';
-import { Navigation } from '../components/Navigation'
+import { Navigation } from '../components/Navigation.jsx'
+import { ProjectsSideBar } from '../components/ProjectsSideBar.jsx';
+import { CenterZone } from '../components/CenterZone.jsx';
 
 export function Home() { 
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [dogImages, setDogImages] = useState([]);
 
     useEffect(
       () => {
@@ -17,26 +20,34 @@ export function Home() {
 
     function getDog() {
       fetch("https://dog.ceo/api/breeds/image/random")
-        .then((response) => response.json())
-        .then((response) => {
-          console.log(response.message);
-          const container = document.getElementsByClassName("image-container")[0];
-          const imageElement = document.createElement("img");
-          imageElement.src = response.message;
-          console.log(container)
-          console.log(imageElement)
-          container.appendChild(imageElement)
-        })
+            .then((response) => response.json())
+            .then((data) => {
+              setDogImages((prevImages)=> [...prevImages, data.message])
+            })
     }
 
-    console.log(localStorage.getItem("token"))
     return (
     <>
     {isAuthenticated ? 
       (<main>
-          <h1>You are at HOME page</h1>
+        <ProjectsSideBar></ProjectsSideBar>
+        <CenterZone></CenterZone>
+
+
+
+
+
+
+
+
+
+
+{/* 
           <button onClick={getDog}>get dog</button>
-          <div className="image-container"></div>
+          <div className="image-container">{dogImages.map((url, inx) => (
+            <img key={inx} src={url} alt="" />
+          ) )}</div> */}
+
       </main>):
       (<h1>Plesase authorizate first</h1>)
     }

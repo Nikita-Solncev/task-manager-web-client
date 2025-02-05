@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../services/loginService.js';
 
 export function Login() {
 
@@ -6,24 +7,11 @@ export function Login() {
     
     function sendLoginForm(event) {
         event.preventDefault();
-        const URL = "http://127.0.0.1:5000/login";
 
-        const options = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: event.target[0].value, 
-                password: event.target[1].value
-            })
-        }
+        const username =  event.target[0].value;
+        const password =  event.target[1].value;
 
-        console.log(event.target[0].value);
-        console.log(event.target[1].value);
-        console.log(options)
-
-        fetch(URL, options)
+        loginUser(username, password)
             .then((response) => response.json())
             .then((data) => {
                 localStorage.setItem("token", data.token);
@@ -31,7 +19,6 @@ export function Login() {
                 navigate("/");
             }) 
 
-        console.log("form submited")
         }
     return (
         <>

@@ -1,0 +1,38 @@
+.sidebar {
+    width: 250px; /* Ширина панели */
+    height: 100vh; /* Высота на весь экран */
+    background-color: #0D1B2A; /* Фоновый цвет панели */
+    color: white; /* Цвет текста */
+    padding: 20px;
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+/* Стили для заголовка */
+.sidebar-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Стили для списка проектов */
+.project-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+}
+
+/* Стили для элементов списка */
+.project-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Плавный переход */
+}
+
+/* Эффект при наведении на элемент */
+.project-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон */
+    border: 1px solid #ccc; /* Серая рамка */
+}
