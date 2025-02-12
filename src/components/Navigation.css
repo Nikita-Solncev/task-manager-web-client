@@ -20,6 +20,7 @@
 /* Общие стили для кнопок */
 .nav-button {
     padding: 10px 20px;
+    margin: 10px;
     border: none;
     border-radius: 5px;
     background-color: transparent;
@@ -37,6 +38,11 @@
 .nav-button.sign-in,
 .nav-button.log-in {
     background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
+}
+
+.nav-button.log-out {
+    background-color: rgb(156, 53, 53);
     color: white;
 }
 

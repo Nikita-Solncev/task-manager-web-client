@@ -8,15 +8,12 @@ export function Home() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [dogImages, setDogImages] = useState([]);
 
-    useEffect(
-      () => {
+    useEffect(() => {
         const token = localStorage.getItem("token")
         if (token) {
-          setIsAuthenticated(true)
+            setIsAuthenticated(true)
         }
-      },
-      []
-    )
+    }, [])
 
     function getDog() {
       fetch("https://dog.ceo/api/breeds/image/random")
@@ -27,30 +24,15 @@ export function Home() {
     }
 
     return (
-    <>
-    {isAuthenticated ? 
-      (<main>
-        <ProjectsSideBar></ProjectsSideBar>
-        <CenterZone></CenterZone>
-
-
-
-
-
-
-
-
-
-
-{/* 
-          <button onClick={getDog}>get dog</button>
-          <div className="image-container">{dogImages.map((url, inx) => (
-            <img key={inx} src={url} alt="" />
-          ) )}</div> */}
-
-      </main>):
-      (<h1>Plesase authorizate first</h1>)
-    }
-    </>
+        <>
+            {isAuthenticated ? (
+                <main>
+                    <ProjectsSideBar />
+                    <CenterZone />
+                </main>
+            ) : (
+                <h1>Please authorize first</h1>
+            )}
+        </>
     )
 }

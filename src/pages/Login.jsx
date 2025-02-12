@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/loginService.js';
+import { useAuth } from '../context/AuthContext';
 
 export function Login() {
-
+    const { setIsAuthenticated } = useAuth();
     const navigate = useNavigate();
     
     function sendLoginForm(event) {
@@ -12,14 +13,22 @@ export function Login() {
         const password =  event.target[1].value;
 
         loginUser(username, password)
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Login failed');
+                }
+                return response.json();
+            })
             .then((data) => {
+                console.log('Login successful:', data);
                 localStorage.setItem("token", data.token);
-                console.log(data);
+                setIsAuthenticated(true);
                 navigate("/");
-            }) 
-
-        }
+            })
+            .catch(error => {
+                console.error('Login error:', error);
+            });
+    }
     return (
         <>
         <div className="LoginForm">
