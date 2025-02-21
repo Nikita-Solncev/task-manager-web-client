@@ -1,5 +1,4 @@
 import '../App.css'
-import { Navigation } from '../components/Navigation'
 
 export function Profile() { 
     return (

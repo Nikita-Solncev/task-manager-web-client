@@ -1,0 +1,35 @@
+.center-zone {
+    width: calc(100% - 400px); /* Обновлено под новую ширину сайдбара */
+    height: calc(100vh - 65px); /* Вычитаем высоту навбара */
+    background-color: #1B263B;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    margin-left: 400px; /* Обновлено под новую ширину сайдбара */
+    margin-top: 65px; /* Отступ равный высоте навбара */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Добавлено для абсолютного позиционирования title */
+}
+/* Стили для заголовка зоны */
+.zone-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Стили для контейнера задач */
+.tasks-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Расстояние между карточками */
+    width: 100%; /* Ширина контейнера на всю зону */
+}
+

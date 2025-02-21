@@ -1,9 +1,10 @@
 import "./Navigation.css"
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export function Navigation() {
     const { isAuthenticated, setIsAuthenticated } = useAuth();
-    
+    const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem("token");
         setIsAuthenticated(false);
@@ -12,9 +13,15 @@ export function Navigation() {
 
     return (<nav className="navbar">
         <div className="navbar-left">
-            <button className="nav-button">Home</button>
-            <button className="nav-button">Something</button>
-            <button className="nav-button">Profile</button>
+            <button className="nav-button" onClick={() => navigate("/")}>
+                Home
+            </button>
+            <button className="nav-button" onClick={() => navigate("/projects")}>
+                Projects
+            </button>
+            <button className="nav-button" onClick={() => navigate("/profile")}>
+                Profile
+            </button>
         </div>
         <div className="navbar-right">
             {!isAuthenticated ? (

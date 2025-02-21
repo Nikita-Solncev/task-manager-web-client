@@ -1,21 +1,17 @@
-import '../App.css'
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ProjectsSideBar } from '../components/ProjectsSideBar/ProjectsSideBar.jsx';
-import { CenterZone } from '../components/CenterZone/CenterZone.jsx';
+import { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { getProjects } from '../services/getProjectsService.js';
 
-export function Home() { 
+export function Projects() {
     const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
-    const [projects, setProjects] = useState([]);
 
     useEffect(() => {
         if (!isAuthenticated) {
             navigate('/login');
         }
-        
+
         getProjects()
             .then((response) => {
                 if (!response.ok) {
@@ -24,19 +20,17 @@ export function Home() {
                 return response.json();
             })
             .then((data) => {
-                const projectsArray = Array.isArray(data.projects) ? data.projects : [];
-                setProjects(projectsArray);
+                console.log(data);
             })
             .catch(error => {
                 console.error('Error fetching projects:', error);
-                setProjects([]);
             });
     }, [isAuthenticated, navigate]);
 
     return isAuthenticated ? (
         <main>
-            <ProjectsSideBar projects={projects} />
-            <CenterZone />
+            <h1>Hi</h1>
         </main>
     ) : null;
 }
+
