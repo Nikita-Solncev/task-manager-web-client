@@ -24,15 +24,35 @@
 
 /* Стили для элементов списка */
 .project-item {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    transition: all 0.3s ease; /* Плавный переход */
+    transition: background-color 0.3s ease;
 }
 
 /* Эффект при наведении на элемент */
 .project-item:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон */
-    border: 1px solid #ccc; /* Серая рамка */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.project-name {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.project-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+.project-role {
+    text-transform: capitalize;
+}
+
+.project-user {
+    opacity: 0.8;
 }

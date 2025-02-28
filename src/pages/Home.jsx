@@ -2,7 +2,6 @@ import '../App.css'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProjectsSideBar } from '../components/ProjectsSideBar/ProjectsSideBar.jsx';
-import { CenterZone } from '../components/CenterZone/CenterZone.jsx';
 import { useAuth } from '../context/AuthContext';
 import { getProjects } from '../services/getProjectsService.js';
 
@@ -36,7 +35,6 @@ export function Home() {
     return isAuthenticated ? (
         <main>
             <ProjectsSideBar projects={projects} />
-            <CenterZone />
         </main>
     ) : null;
 }

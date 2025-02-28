@@ -1,6 +1,5 @@
-export async function getProjects() {
-    const URL = "http://127.0.0.1:5000/projects";
-
+export async function createProject(projectName) {
+    const URL = "/api/projects";
     const token = localStorage.getItem("token");
 
     const options = {
@@ -8,8 +7,13 @@ export async function getProjects() {
         headers: {
             "Authorization": `Bearer ${token}`,
             "Content-Type": "application/json"
-        }
-    }       // not finished
+        },
+        credentials: 'include',
+        body: JSON.stringify({name: projectName})
+    }
+    
+    console.log(options);
 
-    return await fetch(URL, options)
+    return await fetch(URL, options);
 }
+    
